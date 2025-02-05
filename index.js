@@ -1,11 +1,19 @@
 const express = require("express")
 const cors = require("cors")
 const morgan = require("morgan")
+// Routing
+const authRouter = require("./routes/auth-router")
 
 const app = express()
 
-app.use(cors())
-app.use(morgan())
+// Middlewares
+app.use(cors()) // Allows cross domain
+app.use(morgan("dev")) // Show log terminal
+app.use(express.json()) // For read json
 
+// Routing 
+app.use('/api',authRouter)
+
+// Start Server
 const PORT = 8000
-app.listen(PORT,()=>console.log(`server is run port ${PORT}`))
+app.listen(PORT,()=> console.log(`Server is runnig on port ${PORT}`))
