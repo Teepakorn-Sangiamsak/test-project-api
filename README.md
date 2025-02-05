@@ -311,3 +311,48 @@ exports.login = async (req,res,next)=>{
     }    
 }
 ```
+
+## Step 11 Create file user-router.js in folder routes and Create file user-con.js in folder controllers
+/routes/user-router.js
+```js
+const express = require('express')
+const userRouter = express.Router()
+const userController = require("../controllers/user-con")
+
+// @ENDPOINT http://localhost:8000/api/user
+userRouter.get('/user', userController.listUsers)
+userRouter.patch('/user/update-role', userController.updateRole)
+userRouter.delete('/user/:id', userController.deleteUser)
+
+module.exports = userRouter
+```
+/controllers/user-con.js
+```js
+// 1.List all users
+// 2.Update Role
+// 3.Delete User
+
+exports.listUsers = async(req,res,next)=>{
+    try {
+        res.json({message:"Hello, List Users"})
+    } catch (error) {
+        next(error)
+    }
+}
+
+exports.updateRole = async(req,res,next)=>{
+    try {
+        res.json({message:"Hello, Update Role"})
+    } catch (error) {
+        next(error)
+    }
+}
+
+exports.deleteUser = async(req,res,next)=>{
+    try {
+        res.json({message:"Hello, Delete Users"})
+    } catch (error) {
+        next(error)
+    }
+}
+```
