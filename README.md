@@ -7,7 +7,7 @@ npm init -y
 
 ## Step 2 install package....
 ```bash
-npm install express nodemon cors morgan bcryptjs jsonwebtoken zod prisma 
+npm install express nodemon cors morgan bcryptjs jsonwebtoken zod
 ```
 ```bash
 npx prisma init
@@ -28,3 +28,9 @@ git branch -M main
 git push -u origin main
 ```
 
+when update code
+```bash
+git add .
+git commit -m "message"
+git push
+```
