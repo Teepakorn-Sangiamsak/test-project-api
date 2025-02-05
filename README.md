@@ -99,3 +99,44 @@ authRouter.post('/register', authController.register )
 // export
 module.exports = authRouter
 ```
+
+## Step 7 Create handle Error
+/middlewares/error.js
+```js
+const handleErrors = (err,req,res,next) =>{
+    res
+    .status(err.statusCode || 500)
+    .json({message: err.message || "Somting wrong!!"})
+
+}
+
+module.exports = handleErrors
+```
+
+and use in index.js
+```js
+const handleErrors = require("./middlewares/error")
+
+// Handle errors อยู่รองสุดท้ายใน file index.js
+app.use(handleErrors)
+```
+
+and change in try_catch
+```js
+exports.login = (req,res,next)=>{
+    try {
+        console.log(dsgdsgfs)
+        res.json({message:"hello login"})
+    } catch (error) {
+        console.log(error.message)
+        next(error)
+    }    
+}
+```
+
+when update code in Github
+```bash
+git add .
+git commit -m "msg"
+git push
+```

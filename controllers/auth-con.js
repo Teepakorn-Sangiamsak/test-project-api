@@ -1,9 +1,18 @@
 exports.register = (req,res,next)=>{
     try{
         res.json({message:"hello register"})
-    }catch(err){
-        res.status(500).json({message:"Server Error!!!!!!!!!!!!!!!!!!!"})
-        // next(err)
+    }catch(error){
+        next(error)
     }
 
+}
+
+exports.login = (req,res,next)=>{
+    try {
+        console.log(dsgdsgfs)
+        res.json({message:"hello login"})
+    } catch (error) {
+        console.log(error.message)
+        next(error)
+    }    
 }
