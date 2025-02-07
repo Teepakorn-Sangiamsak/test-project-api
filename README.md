@@ -312,7 +312,19 @@ exports.login = async (req,res,next)=>{
 }
 ```
 
-## Step 11 Create file user-router.js in folder routes and Create file user-con.js in folder controllers
+## Step 11 Current-user
+/controllers/auth-con.js
+```js
+exports.currentUser = async(req,res,next)=>{
+    try {
+        res.json({message:"Hello, current user"})
+    } catch (error) {
+        next(error)
+    }
+}
+```
+
+## Step 12 Create file user-router.js in folder routes and Create file user-con.js in folder controllers
 /routes/user-router.js
 ```js
 const express = require('express')
